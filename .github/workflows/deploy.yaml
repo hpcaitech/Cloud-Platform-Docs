@@ -1,18 +1,12 @@
 name: Deploy Website
 on:
-  pull_request:
-    types: [closed]
-    branches:
-      - "*"
   workflow_dispatch:
-  repository_dispatch:
 
 jobs:
   publish-to-github-pages:
     name: Build for international
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    if: ( github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true )
     permissions:
       contents: write
     steps:
@@ -57,7 +51,6 @@ jobs:
     name: Build for China release
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    if: ( github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true )
     permissions:
       contents: write
     steps:
