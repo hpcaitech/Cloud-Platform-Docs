@@ -6,10 +6,9 @@ on:
 
 jobs:
   publish:
-    name: Build and deploy website
+    name: Test build
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    if: github.base_ref == 'main' && github.event.pull_request.base.repo.full_name == 'hpcaitech/ColossalAI-Documentation'
     steps:
       # Checkout Project
       - name: 📚 Checkout
