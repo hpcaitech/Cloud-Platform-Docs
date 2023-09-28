@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcloud_platform_documentation=self.webpackChunkcloud_platform_documentation||[]).push([[801],{2811:a=>{a.exports=JSON.parse('{"label":"llama2 ColossalChat","permalink":"/blog/tags/llama-2-colossal-chat","allTagsPath":"/blog/tags","count":1}')}}]);
