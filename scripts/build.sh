@@ -6,6 +6,7 @@ set -euo pipefail  # fail early
 # Get the arguments
 # ======================
 WEB_REPO_DIR=${1}
+WEB_REPO_DIR=$(realpath $WEB_REPO_DIR)
 
 # ======================
 # Set up the variables

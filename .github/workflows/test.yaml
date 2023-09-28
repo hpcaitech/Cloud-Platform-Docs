@@ -14,7 +14,7 @@ jobs:
       - name: 📚 Checkout
         uses: actions/checkout@v2
 
-      - name: Checkout Cloud Platform Source
+      - name: Checkout Cloud Platform Docs Website
         uses: actions/checkout@v3
         with:
           repository: hpcaitech/Cloud-Platform-Docs-Website
