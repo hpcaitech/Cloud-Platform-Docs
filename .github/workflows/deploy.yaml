@@ -1,0 +1,103 @@
+name: Deploy Website
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - "*"
+  workflow_dispatch:
+  repository_dispatch:
+
+jobs:
+  publish-to-github-pages:
+    name: Build for international
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    if: ( github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true )
+    permissions:
+      contents: write
+    steps:
+      # Checkout Project
+      - name: Checkout The Docs Repo
+        uses: actions/checkout@v3
+
+      - name: Checkout Cloud Platform Source
+        uses: actions/checkout@v3
+        with:
+          repository: hpcaitech/Cloud-Platform-Docs-Website
+          token: ${{ secrets.CLOUD_PLATFORM_GITHUB_TOKEN }}
+          path: Cloud-Platform
+
+      # Setup Node.js
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+          cache: "yarn"
+          cache-dependency-path: Cloud-Platform-Docs-Website/cloud-platform-documentation/package-lock.json
+
+      # Setup Python 3.8
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.8.14"
+
+      # Build for international release
+      - name: 🔨 Build
+        run: |
+          PLATFORM_HOSTNAME=platform.colossalai.com bash ./scripts/build.sh Cloud-Platform-Docs-Website
+          mv Cloud-Platform-Docs-Website/cloud-platform-documentation/build ./
+
+      # Deploy to GitHub Pages for international release
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          cname: docs.platform.colossalai.com
+
+  publish-to-ali-cloud:
+    name: Build for China release
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    if: ( github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true )
+    permissions:
+      contents: write
+    steps:
+      # Checkout Project
+      - name: Checkout The Docs Repo
+        uses: actions/checkout@v3
+
+      - name: Checkout Cloud Platform Source
+        uses: actions/checkout@v3
+        with:
+          repository: hpcaitech/Cloud-Platform-Docs-Website
+          token: ${{ secrets.CLOUD_PLATFORM_GITHUB_TOKEN }}
+          path: Cloud-Platform
+
+      # Setup Node.js
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+          cache: "yarn"
+          cache-dependency-path: Cloud-Platform-Docs-Website/cloud-platform-documentation/package-lock.json
+
+      # Setup Python 3.8
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.8.14"
+
+      # Build for international release
+      - name: 🔨 Build
+        run: |
+          PLATFORM_HOSTNAME=platform.luchentech.com bash ./scripts/build.sh Cloud-Platform-Docs-Website
+          mv ./Cloud-Platform-Docs-Website/cloud-platform-documentation/build ./
+
+      # scp to cloud server for China release
+      - name: Deploy to Private Cloud Server
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: build
+          remote: ${{ secrets.CLOUD_SERVER_BUILD_PATH }}
+          host: ${{ secrets.CLOUD_SERVER_HOST }}
+          username: ${{ secrets.CLOUD_SERVER_USER }}
+          password: ${{ secrets.CLOUD_SERVER_PASSWORD }}
+          dotfiles: true
+          rmRemote: true
