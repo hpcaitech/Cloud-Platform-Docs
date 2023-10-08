@@ -44,7 +44,7 @@ const sidebars = {
   ],
   contactSidebar: [
     `contact/${
-      process.env.PLATFORM_HOSTNAME?.includes("luchentech") ? "wecom" : "slack"
+      process.env.PLATFORM_HOSTNAME?.includes("luchentech") ? "wechat" : "slack"
     }`,
     "contact/hpc-ai",
   ],
