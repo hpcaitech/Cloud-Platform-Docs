@@ -155,6 +155,7 @@ torchrun --nnodes ${NNODES} \
 #### 使用数据集
 
 数据集路径会以环境变量的形式注入容器，您可以通过`$DATASET_DIR`获取。假设上传的数据路径为`root/data.json`，在训练代码中对应为`$DATASET_DIR/data.json`
+![](./images/dataset.png)
 
 ### 4. 创建模型
 您可以参考此文档创建模型：[创建模型](https://docs.platform.luchentech.com/docs/basics/model)
@@ -162,6 +163,7 @@ torchrun --nnodes ${NNODES} \
 #### 使用模型
 
 模型路径会以环境变量的形式注入容器，您可以通过`$MODEL_DIR`获取。假设上传的模型文件夹路径为`root/pretrain`，在训练代码中对应为`$MODEL_DIR/pretrain`
+![](./images/model.png)
 
 ### 5. 创建训练任务
 您可以参考此文档创建训练任务：[训练任务](https://docs.platform.luchentech.com/docs/training/jobs)
