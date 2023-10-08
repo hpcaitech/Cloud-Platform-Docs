@@ -29,25 +29,24 @@ const sidebars = {
     {
       type: "category",
       label: "训练任务",
-      items: [
-        "training/jobs",
-        "training/job_info",
-      ],
+      items: ["training/jobs", "training/job_info"],
     },
     {
       type: "category",
       label: "推理API",
-      items: [
-        "inference/inference",
-      ],
+      items: ["inference/inference"],
     },
     {
       type: "category",
       label: "命令行工具",
-      items: [
-        "cli/cli",
-      ],
-    }
+      items: ["cli/cli"],
+    },
+  ],
+  contactSidebar: [
+    `contact/${
+      process.env.PLATFORM_HOSTNAME?.includes("luchentech") ? "wecom" : "slack"
+    }`,
+    "contact/hpc-ai",
   ],
 };
 
