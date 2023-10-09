@@ -3,43 +3,15 @@
 set -euo pipefail  # fail early
 
 # ======================
-# Get the arguments
-# ======================
-BRANCH=${1:-main}
-
-# ======================
 # Set up the variables
 # ======================
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 ROOT_DIR="$SCRIPT_DIR/.."
-CACHE_DIR="$ROOT_DIR/.cache"
-
-# ======================
-# Set up the website
-# ======================
-WEB_REPO="git@github.com:hpcaitech/Cloud-Platform-Docs-Website.git"
-REPO_DIR="$CACHE_DIR/Cloud-Platform-Docs-Website"
-DOCUSAURUS_DIR="$REPO_DIR/cloud-platform-documentation"
-
-mkdir -p $CACHE_DIR
-cd $CACHE_DIR
-
-if [ ! -d "$WEB_REPO" ] ; then
-    git clone "$WEB_REPO"
-    echo "[INFO] Cloning the website code to ${CACHE_DIR} via ${WEB_REPO}"
-else
-    echo "[INFO] Using existing website code in ${CACHE_DIR}"
-fi
-
-# check out to the branch
-cd $REPO_DIR
-git fetch origin
-git checkout $BRANCH
+DOCUSAURUS_DIR="$ROOT_DIR/docusaurus"
 
 # install the dependency
 cd $DOCUSAURUS_DIR
 yarn install
-
 
 # ======================
 # Set up the docs

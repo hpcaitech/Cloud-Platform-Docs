@@ -3,22 +3,11 @@
 set -euo pipefail  # fail early
 
 # ======================
-# Get the arguments
-# ======================
-WEB_REPO_DIR=${1}
-WEB_REPO_DIR=$(realpath $WEB_REPO_DIR)
-
-# ======================
 # Set up the variables
 # ======================
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 ROOT_DIR="$SCRIPT_DIR/.."
-CACHE_DIR="$ROOT_DIR/.cache"
-
-# ======================
-# Set up the website
-# ======================
-DOCUSAURUS_DIR="$WEB_REPO_DIR/cloud-platform-documentation"
+DOCUSAURUS_DIR="$ROOT_DIR/docusaurus"
 
 # install the dependency
 cd $DOCUSAURUS_DIR
