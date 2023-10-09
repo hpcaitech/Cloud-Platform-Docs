@@ -20,6 +20,11 @@ tags: [ColossalChat]
 #### 使用命令行工具
 我们强烈推荐您使用我们的命令行工具创建项目目录，这会初始化一个文件夹，其中包含了启动训练必要的文件。安装和使用方法请参考：[命令行工具git仓库](https://github.com/hpcaitech/ColossalAI-Platform-CLI)
 
+#### 使用ColossalChat模板
+您也可以使用现有的ColossalChat模板来获取一个可以直接运行的项目
+
+[下载链接](https://drive.google.com/file/d/1JCe647cdddAi8NrLTKKFEowpo7kfwc-o/view?usp=drive_link)
+
 #### 手动创建
 如果需要手动创建项目，您需要在文件夹中创建一些内容，可以参考：[项目规范](https://docs.platform.luchentech.com/docs/basics/projects#%E9%A1%B9%E7%9B%AE%E8%A7%84%E8%8C%83)
 
@@ -46,34 +51,10 @@ tags: [ColossalChat]
 import os
 import argparse
 import types
-from patch import patch_platform_specific_dependencies
-
-# Please do not remove this call,
-# the platform's runtime environment needs it.
-patch_platform_specific_dependencies()
 
 def add_platform_args(parser: argparse.ArgumentParser):
-    # required arguments
-    parser.add_argument(
-        "--project_dir",
-        type=str,
-        required=True,
-        help="The directory contains the project code.",
-    )
-    parser.add_argument(
-        "--dataset_dir",
-        type=str,
-        required=True,
-        help="The directory contains the training dataset.",
-    )
-    parser.add_argument(
-        "--output_dir",
-        type=str,
-        required=True,
-        help="The directory project would write output into.",
-    )
-
-    # optional arguments, add more if you need
+    # ...
+    # add more if you need
     parser.add_argument(
         "--model_dir",
         type=str,
@@ -160,6 +141,8 @@ torchrun --nnodes ${NNODES} \
 ### 4. 创建模型
 您可以参考此文档创建模型：[创建模型](https://docs.platform.luchentech.com/docs/basics/model)
 
+您也可以使用我们提供的公共模型来进行训练
+![](./images/public_model.png)
 #### 使用模型
 
 模型路径会以环境变量的形式注入容器，您可以通过`$MODEL_DIR`获取。假设上传的模型文件夹路径为`root/pretrain`，在训练代码中对应为`$MODEL_DIR/pretrain`
