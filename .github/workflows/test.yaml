@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: "16"
           cache: "yarn"
-          cache-dependency-path: Cloud-Platform-Docs-Website/cloud-platform-documentation/package-lock.json
+          cache-dependency-path: docusaurus/package-lock.json
 
       # Build
       - name: 🔨 Build
