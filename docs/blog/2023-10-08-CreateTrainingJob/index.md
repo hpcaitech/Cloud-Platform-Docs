@@ -18,10 +18,10 @@ tags: [ColossalChat]
 ### 1. 创建项目目录
 
 #### 使用命令行工具
-我们强烈推荐您使用我们的命令行工具创建项目目录，这会初始化一个文件夹，其中包含了启动训练必要的文件。安装和使用方法请参考：[命令行工具git仓库](https://github.com/hpcaitech/ColossalAI-Platform-CLI)
+我们推荐您使用我们的命令行工具创建项目目录，这会初始化一个文件夹，其中包含了启动训练必要的文件。安装和使用方法请参考：[命令行工具git仓库](https://github.com/hpcaitech/ColossalAI-Platform-CLI)
 
 #### 使用ColossalChat模板
-您也可以使用现有的ColossalChat模板来获取一个可以直接运行的项目
+您也可以使用现有的ColossalChat模板来获取一个**可以直接运行的项目**
 
 [下载链接](https://drive.google.com/file/d/1JCe647cdddAi8NrLTKKFEowpo7kfwc-o/view?usp=drive_link)
 
