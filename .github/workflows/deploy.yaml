@@ -20,13 +20,6 @@ jobs:
       - name: Checkout The Docs Repo
         uses: actions/checkout@v3
 
-      - name: Checkout Cloud Platform Source
-        uses: actions/checkout@v3
-        with:
-          repository: hpcaitech/Cloud-Platform-Docs-Website
-          token: ${{ secrets.CLOUD_PLATFORM_GITHUB_TOKEN }}
-          path: Cloud-Platform-Docs-Website
-
       # Setup Node.js
       - uses: actions/setup-node@v2
         with:
@@ -42,7 +35,7 @@ jobs:
       # Build for international release
       - name: 🔨 Build
         run: |
-          PLATFORM_HOSTNAME=platform.colossalai.com bash ./scripts/build.sh Cloud-Platform-Docs-Website
+          PLATFORM_HOSTNAME=platform.colossalai.com bash ./scripts/build.sh
           mv Cloud-Platform-Docs-Website/cloud-platform-documentation/build ./
 
       # Deploy to GitHub Pages for international release
@@ -65,13 +58,6 @@ jobs:
       - name: Checkout The Docs Repo
         uses: actions/checkout@v3
 
-      - name: Checkout Cloud Platform Source
-        uses: actions/checkout@v3
-        with:
-          repository: hpcaitech/Cloud-Platform-Docs-Website
-          token: ${{ secrets.CLOUD_PLATFORM_GITHUB_TOKEN }}
-          path: Cloud-Platform-Docs-Website
-
       # Setup Node.js
       - uses: actions/setup-node@v2
         with:
@@ -87,7 +73,7 @@ jobs:
       # Build for international release
       - name: 🔨 Build
         run: |
-          PLATFORM_HOSTNAME=platform.luchentech.com bash ./scripts/build.sh Cloud-Platform-Docs-Website
+          PLATFORM_HOSTNAME=platform.luchentech.com bash ./scripts/build.sh
           mv ./Cloud-Platform-Docs-Website/cloud-platform-documentation/build ./
 
       # scp to cloud server for China release

@@ -123,7 +123,7 @@ You will be able to preview the website at `http://localhost:3000/` by default.
 In case you are modifying the frontend website source code and wanna preview the latest changes, you can run the following command to start the development server.
 
 ```bash
-bash ./scripts/preview.sh <branch>
+bash ./scripts/preview.sh
 ```
 
 **Please note that the `<branch>` refers to the branch of the [Cloud-Platform-Docs-Website](https://github.com/hpcaitech/Cloud-Platform-Docs-Website) repository, not this repository.**
@@ -133,11 +133,11 @@ bash ./scripts/preview.sh <branch>
 If you can preview your documentation locally, you can proceed to try to build your documentation. **Please note that preview does not guarantee that your documentation can be built successfully.**
 
 ```bash
-bash ./scripts/build.sh <frontend-codebase-dir>
+bash ./scripts/build.sh
 
 # If you have run preview, your repository will be stored in .cache
 # otherwise, you need to set your own path
-bash ./scripts/build.sh .cache/Cloud-Platform-Docs-Website
+bash ./scripts/build.sh
 ```
 
 ### 📦 Deployment

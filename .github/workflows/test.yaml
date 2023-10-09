@@ -14,13 +14,6 @@ jobs:
       - name: 📚 Checkout
         uses: actions/checkout@v2
 
-      - name: Checkout Cloud Platform Docs Website
-        uses: actions/checkout@v3
-        with:
-          repository: hpcaitech/Cloud-Platform-Docs-Website
-          token: ${{ secrets.CLOUD_PLATFORM_GITHUB_TOKEN }}
-          path: Cloud-Platform-Docs-Website
-
       # Setup Node.js
       - uses: actions/setup-node@v2
         with:
@@ -31,4 +24,4 @@ jobs:
       # Build
       - name: 🔨 Build
         run: |
-          bash ./scripts/build.sh Cloud-Platform-Docs-Website
+          bash ./scripts/build.sh
