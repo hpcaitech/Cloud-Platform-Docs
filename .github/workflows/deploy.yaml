@@ -30,7 +30,7 @@ jobs:
       - name: 🔨 Build
         run: |
           PLATFORM_HOSTNAME=platform.colossalai.com bash ./scripts/build.sh
-          mv Cloud-Platform-Docs-Website/cloud-platform-documentation/build ./
+          mv ./docusaurus/build ./
 
       # Deploy to GitHub Pages for international release
       - name: Deploy to GitHub Pages
@@ -67,7 +67,7 @@ jobs:
       - name: 🔨 Build
         run: |
           PLATFORM_HOSTNAME=platform.luchentech.com bash ./scripts/build.sh
-          mv ./Cloud-Platform-Docs-Website/cloud-platform-documentation/build ./
+          mv ./docusaurus/build ./
 
       # scp to cloud server for China release
       - name: Deploy to Private Cloud Server
