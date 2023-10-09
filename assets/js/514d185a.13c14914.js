@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcloud_platform_documentation=self.webpackChunkcloud_platform_documentation||[]).push([[649],{9683:o=>{o.exports=JSON.parse('{"permalink":"/blog/tags/llama-2-colossal-chat","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

@@ -2,11 +2,27 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://docs.platform.colossalai.com/blog</id>
     <title>ColossalAI Platform Documentation Blog</title>
-    <updated>2023-07-28T00:00:00.000Z</updated>
+    <updated>2023-10-08T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://docs.platform.colossalai.com/blog"/>
     <subtitle>ColossalAI Platform Documentation Blog</subtitle>
     <icon>https://docs.platform.colossalai.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[从零启动一个训练任务]]></title>
+        <id>https://docs.platform.colossalai.com/blog/从零启动一个训练任务</id>
+        <link href="https://docs.platform.colossalai.com/blog/从零启动一个训练任务"/>
+        <updated>2023-10-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[介绍]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="介绍">介绍<a href="#介绍" class="hash-link" aria-label="Direct link to 介绍" title="Direct link to 介绍">​</a></h2><p>在本文中，我们将介绍如何从零创建一个可以运行的项目，并在ColossalAI平台上进行模型训练。</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="流程详解">流程详解<a href="#流程详解" class="hash-link" aria-label="Direct link to 流程详解" title="Direct link to 流程详解">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-创建项目目录">1. 创建项目目录<a href="#1-创建项目目录" class="hash-link" aria-label="Direct link to 1. 创建项目目录" title="Direct link to 1. 创建项目目录">​</a></h3><h4 class="anchor anchorWithStickyNavbar_LWe7" id="使用命令行工具">使用命令行工具<a href="#使用命令行工具" class="hash-link" aria-label="Direct link to 使用命令行工具" title="Direct link to 使用命令行工具">​</a></h4><p>我们推荐您使用我们的命令行工具创建项目目录，这会初始化一个文件夹，其中包含了启动训练必要的文件。安装和使用方法请参考：<a href="https://github.com/hpcaitech/ColossalAI-Platform-CLI" target="_blank" rel="noopener noreferrer">命令行工具git仓库</a></p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="使用colossalchat模板">使用ColossalChat模板<a href="#使用colossalchat模板" class="hash-link" aria-label="Direct link to 使用ColossalChat模板" title="Direct link to 使用ColossalChat模板">​</a></h4><p>您也可以使用现有的ColossalChat模板来获取一个<strong>可以直接运行的项目</strong></p><p><a href="https://drive.google.com/file/d/1JCe647cdddAi8NrLTKKFEowpo7kfwc-o/view?usp=drive_link" target="_blank" rel="noopener noreferrer">下载链接</a></p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="手动创建">手动创建<a href="#手动创建" class="hash-link" aria-label="Direct link to 手动创建" title="Direct link to 手动创建">​</a></h4><p>如果需要手动创建项目，您需要在文件夹中创建一些内容，可以参考：<a href="https://docs.platform.luchentech.com/docs/basics/projects#%E9%A1%B9%E7%9B%AE%E8%A7%84%E8%8C%83" target="_blank" rel="noopener noreferrer">项目规范</a></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-上传到云平台">2. 上传到云平台<a href="#2-上传到云平台" class="hash-link" aria-label="Direct link to 2. 上传到云平台" title="Direct link to 2. 上传到云平台">​</a></h3><p><a href="https://platform.luchentech.com/console/project" target="_blank" rel="noopener noreferrer">云平台项目页面</a></p><p>创建项目后，可以把文件上传到项目内，入口命令路径为<code>root/train.sh</code>
+<img loading="lazy" src="/assets/images/project_page-213b7c7580dd0bf0e25ae15163933f38.png" width="2625" height="1079" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="3-创建数据集">3. 创建数据集<a href="#3-创建数据集" class="hash-link" aria-label="Direct link to 3. 创建数据集" title="Direct link to 3. 创建数据集">​</a></h3><p>您可以参考此文档创建数据集：<a href="https://docs.platform.luchentech.com/docs/basics/datasets" target="_blank" rel="noopener noreferrer">创建数据集文档</a></p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="使用数据集">使用数据集<a href="#使用数据集" class="hash-link" aria-label="Direct link to 使用数据集" title="Direct link to 使用数据集">​</a></h4><p>数据集路径会以环境变量的形式注入容器，您可以通过<code>$DATASET_DIR</code>获取。假设上传的数据路径为<code>root/data.json</code>，在训练代码中对应为<code>$DATASET_DIR/data.json</code>
+<img loading="lazy" src="/assets/images/dataset-4a7d9d9acc436fac0d62fa6f705e007d.png" width="2668" height="583" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="4-创建模型">4. 创建模型<a href="#4-创建模型" class="hash-link" aria-label="Direct link to 4. 创建模型" title="Direct link to 4. 创建模型">​</a></h3><p>您可以参考此文档创建模型：<a href="https://docs.platform.luchentech.com/docs/basics/model" target="_blank" rel="noopener noreferrer">创建模型</a></p><p>您也可以使用我们提供的公共模型来进行训练
+<img loading="lazy" src="/assets/images/public_model-af40fa398101ddf82d5814b4217cdfb2.png" width="2622" height="1300" class="img_ev3q"></p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="使用模型">使用模型<a href="#使用模型" class="hash-link" aria-label="Direct link to 使用模型" title="Direct link to 使用模型">​</a></h4><p>模型路径会以环境变量的形式注入容器，您可以通过<code>$MODEL_DIR</code>获取。假设上传的模型文件夹路径为<code>root/pretrain</code>，在训练代码中对应为<code>$MODEL_DIR/pretrain</code>
+<img loading="lazy" src="/assets/images/model-d77630658351e420cff18e4e090aa3b9.png" width="2669" height="1318" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="5-创建训练任务">5. 创建训练任务<a href="#5-创建训练任务" class="hash-link" aria-label="Direct link to 5. 创建训练任务" title="Direct link to 5. 创建训练任务">​</a></h3><p>您可以参考此文档创建训练任务：<a href="https://docs.platform.luchentech.com/docs/training/jobs" target="_blank" rel="noopener noreferrer">训练任务</a></p><p>选择从项目启动，填写上述步骤中创建的内容，即可开始训练。</p>]]></content>
+        <author>
+            <name>Yinzhe Yao</name>
+        </author>
+        <category label="ColossalChat" term="ColossalChat"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[微调llama2模型]]></title>
         <id>https://docs.platform.colossalai.com/blog/微调llama2模型</id>
