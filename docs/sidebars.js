@@ -39,7 +39,10 @@ const sidebars = {
     {
       type: "category",
       label: "命令行工具",
-      items: ["cli/cli"],
+      items: [
+        "cli/installation",
+        "cli/create-project",
+      ],
     },
   ],
   contactSidebar: [
