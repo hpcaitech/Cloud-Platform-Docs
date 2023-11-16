@@ -24,6 +24,7 @@ const sidebars = {
         "basics/model",
         "basics/projects",
         "basics/templates",
+        "basics/notebook",
       ],
     },
     {
@@ -35,6 +36,11 @@ const sidebars = {
       type: "category",
       label: "推理API",
       items: ["inference/inference"],
+    },
+    {
+      type: "category",
+      label: "交互式开发",
+      items: [ "notebook/create" ]
     },
     {
       type: "category",
