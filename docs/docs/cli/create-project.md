@@ -22,7 +22,7 @@ cap project init my-project
     - requirements.txt
 ```
 
-## 配置任务文件
+## 配置项目框架
 
 `train.sh`,`train.py`,`HyperParameters.json` 为平台启动任务所必需的文件，下面依次介绍它们的功能。
 
