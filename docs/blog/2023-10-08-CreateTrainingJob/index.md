@@ -3,7 +3,7 @@ slug: 从零启动一个训练任务
 title: 从零启动一个训练任务
 authors:
   name: Yinzhe Yao
-  title: ColossalAI Platform Team
+  title: ColossalAI Platform 
 tags: [ColossalChat]
 ---
 
