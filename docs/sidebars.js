@@ -50,6 +50,16 @@ const sidebars = {
         "cli/create-project",
       ],
     },
+    {
+      type: "category",
+      label: "案例教程",
+      items: [
+        "blog/create-training-job/README",
+        "blog/finetune-deploy-llm/README",
+        "blog/colossalai_parallelism/README",
+        "blog/inference_api_llama2_70b_vllm/README",
+      ],
+    },
   ],
   contactSidebar: [
     `contact/${

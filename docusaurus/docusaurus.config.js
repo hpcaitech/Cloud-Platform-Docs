@@ -107,7 +107,6 @@ const config = {
             position: "right",
             label: "Documentation",
           },
-          { to: "/blog", label: "Blog", position: "right" },
         ],
       },
       footer: {
@@ -119,10 +118,6 @@ const config = {
               {
                 label: "Tutorial",
                 to: "/docs/intro",
-              },
-              {
-                label: "Blog",
-                to: "/blog",
               },
             ],
           },

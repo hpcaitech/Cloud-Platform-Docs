@@ -24,7 +24,7 @@ mkdir -p $DOCUSAURUS_DIR/blog
 
 # replace the docs and blog
 cp -r $ROOT_DIR/docs/docs/* $DOCUSAURUS_DIR/docs
-cp -r $ROOT_DIR/docs/blog/* $DOCUSAURUS_DIR/blog
+#cp -r $ROOT_DIR/docs/blog/* $DOCUSAURUS_DIR/blog
 cp -r $ROOT_DIR/docs/sidebars.js $DOCUSAURUS_DIR/
 
 
