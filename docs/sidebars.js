@@ -58,6 +58,7 @@ const sidebars = {
         "blog/finetune-deploy-llm/README",
         "blog/colossalai_parallelism/README",
         "blog/inference_api_llama2_70b_vllm/README",
+        "blog/inference_api_tensorrt_triton/README",
       ],
     },
   ],

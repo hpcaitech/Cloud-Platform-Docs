@@ -23,9 +23,8 @@ rm -rf $DOCUSAURUS_DIR/blog/*
 mkdir -p $DOCUSAURUS_DIR/docs
 mkdir -p $DOCUSAURUS_DIR/blog
 
-# replace the docs and blog
+# replace the docs
 cp -r $ROOT_DIR/docs/docs/* $DOCUSAURUS_DIR/docs
-cp -r $ROOT_DIR/docs/blog/* $DOCUSAURUS_DIR/blog
 cp -r $ROOT_DIR/docs/sidebars.js $DOCUSAURUS_DIR/
 
 
