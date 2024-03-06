@@ -34,7 +34,7 @@ GPU规格：推荐使用H800 （4块及以上）
 
 与原始的LLaMA不同，我们使用[RedPajama](https://www.together.xyz/blog/redpajama)数据集，这是LLaMA训练数据集的复制，包含超过1.2万亿个令牌。完整的数据集在磁盘上未解压缩约为5TB，在下载时约为3TB压缩。
 
-您可以通过[Hugging Face](https://huggingface.co/datasets/togethercomputer/RedPajama-Data-1T)下载一个更小、更易消化的随机样本。如果您只想尝试预训练脚本，可以使用RedPajama的10亿个令牌样本子集，该子集可在[Hugging Face](https://huggingface.co/datasets/togethercomputer/RedPajama-Data-1T-Sample)上找到。下载完成后，您可以将数据库上传至云平台。
+如果您只想尝试预训练脚本，您可以通过[Hugging Face RedPajama-Data-1T](https://huggingface.co/datasets/togethercomputer/RedPajama-Data-1T)下载一个更小的子数据集。下载完成后，您可以将数据库上传至云平台。在此样例中，我们使用云平台预置好的 RedPajama-Data-1T-Sample 数据集，稍后我们会将此数据集挂载在我们的任务上。
 
 RedPajama-Data-1T 包含七个数据片段：
 
@@ -49,14 +49,13 @@ RedPajama-Data-1T 包含七个数据片段：
 | StackExchange | 200亿        | 270亿         |
 | 总计           | 1.2万亿      | 1.25万亿      |
 
-在此样例中，我们使用预置好的 RedPajama-Data-1T-Sample 数据集，稍后我们会将此数据集挂载在我们的任务上。
 
 ## 2. 准备项目文件
 
 我们需要克隆[Colossal-AI](https://github.com/hpcaitech/ColossalAI)代码仓库。在此样例中，我们使用预置好的项目文件，稍后我们会将此项目挂载在我们的任务上。
 
 
-## 2. 启动任务
+## 3. 启动任务
 
 1. 在控制台中选择`任务`选项，点击 `新任务`；
 
@@ -64,17 +63,17 @@ RedPajama-Data-1T 包含七个数据片段：
 
 3. 挂载数据集：将之前准备好的 `RedPajama-Data-1T` 数据集挂载到 Container 中，在这个例子里，模型被挂载到了 `/mnt/dataset`；
 
-3. 挂载项目：将之前准备好的 Colossal AI 项目 `ColossalAI-Parallel-Train-LLaMA-Example` 文件挂载到 Container 中，在这个例子里，项目被挂载到了 `/mnt/project`;
+4. 挂载项目：将之前准备好的 Colossal AI 项目 `ColossalAI-Parallel-Train-LLaMA-Example` 文件挂载到 Container 中，在这个例子里，项目被挂载到了 `/mnt/project`;
 
-4. 启动命令：填入我们项目中默认的启动命令 `bash /mnt/project/train.sh`。同时您可以在云平台页面通过设置环境变量选择此次训练配置，如并行策略，Flash Attention加速，epoch大小等。如果您想了解启动命令是如何启动服务的，或者想自定义启动命令，请参考 `3.启动命令`;
+5. 启动命令：填入我们项目中默认的启动命令 `bash /mnt/project/train.sh`。同时您可以在云平台页面通过设置环境变量选择此次训练配置，如并行策略，Flash Attention加速，epoch大小等。如果您想了解启动命令是如何启动服务的，或者想自定义启动命令，请参考 `3.启动命令`;
 
     在本例中，我们进行zero2的优化策略，利用8卡进行 max_length为2k，batch_size为1的 LLaMA2 7b模型训练
 
-5. 镜像设置：选择官方镜像 `colossalai 0.3.4`；
+6. 镜像设置：选择官方镜像 `colossalai 0.3.4`；
 
-6. 显卡配置：推荐选择 `NVIDA-H800`，GPU 数量设置为大于等于 `4`；
+7. 显卡配置：推荐选择 `NVIDA-H800`，GPU 数量设置为大于等于 `4`；
 
-7. 最后点击 `创建`，启动任务；
+8. 最后点击 `创建`，启动任务；
 
 ![infernce_api_create](./images/task_create.jpg)
 
