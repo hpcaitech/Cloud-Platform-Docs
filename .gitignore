@@ -165,3 +165,7 @@ cython_debug/
 
 # cache
 .cache/
+
+# IDE
+.idea/
+.vscode/

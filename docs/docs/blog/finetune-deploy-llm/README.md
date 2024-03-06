@@ -1,10 +1,5 @@
 ---
-slug: 一键微调+部署LLM
 title: 一键微调+部署LLM
-authors:
-  name: Ziyuan Cui
-  title: ColossalAI Platform Team
-tags: [ColossalChat]
 ---
 
 # 一键微调+部署LLM
