@@ -2,7 +2,7 @@
 
 Stable Diffusion 是一种生成模型，可以根据文本和图像提示生成独特的逼真图像。 它最初于2022年推出。我们将介绍如何使用开源框架 [diffusers](https://github.com/huggingface/diffusers) 实现在云平台上 Stable Diffusion 的训练过程。
 
-Tags:  加速, 训练, Diffusers, Stable Diffusion
+Tags:  加速，训练，Diffusers，Stable Diffusion
 
 ### 运行环境要求
 
