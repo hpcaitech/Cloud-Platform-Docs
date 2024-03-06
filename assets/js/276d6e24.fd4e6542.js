@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkcloud_platform_documentation=self.webpackChunkcloud_platform_documentation||[]).push([[614],{349:o=>{o.exports=JSON.parse('{"permalink":"/blog/tags/colossal-chat","page":1,"postsPerPage":10,"totalPages":1,"totalCount":2,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

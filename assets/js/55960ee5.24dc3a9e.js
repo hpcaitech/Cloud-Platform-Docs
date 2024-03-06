@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcloud_platform_documentation=self.webpackChunkcloud_platform_documentation||[]).push([[121],{8070:o=>{o.exports=JSON.parse('[{"label":"ColossalChat","permalink":"/docs/tags/colossal-chat","count":1}]')}}]);
