@@ -31,11 +31,11 @@ GPU规格：推荐使用H800 （1块）
 
 5. 镜像设置：选择官方镜像 `triton-server`；
 
-6. 显卡配置：推荐选择 `NVIDA-H800`，每个副本 GPU 数量设置为 `1`；
+6. 显卡配置：推荐选择 `NVIDIA-H800`，每个副本 GPU 数量设置为 `1`；
 
 7. 最后点击 `创建`，启动API推理服务，等待2-3分钟api服务完成启动；
 
-![infernce_api_create](./images/infernce_api_create.jpg)
+![inference_api_create](./images/inference_api_create.jpg)
 
 ## 3. 测试推理API
 
