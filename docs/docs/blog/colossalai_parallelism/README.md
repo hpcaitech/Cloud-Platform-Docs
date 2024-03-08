@@ -71,11 +71,11 @@ RedPajama-Data-1T 包含七个数据片段：
 
 6. 镜像设置：选择官方镜像 `colossalai 0.3.4`；
 
-7. 显卡配置：推荐选择 `NVIDA-H800`，GPU 数量设置为大于等于 `4`；
+7. 显卡配置：推荐选择 `NVIDIA-H800`，GPU 数量设置为大于等于 `4`；
 
 8. 最后点击 `创建`，启动任务；
 
-![infernce_api_create](./images/task_create.jpg)
+![inference_api_create](./images/task_create.jpg)
 
 
 ## 3. 启动命令
