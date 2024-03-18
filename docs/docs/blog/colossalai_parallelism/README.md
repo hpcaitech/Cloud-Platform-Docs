@@ -1,4 +1,4 @@
-# 并行优化策略: 利用Colossal-AI进行训练任务并行优化
+# 并行优化策略: 利用Colossal-AI进行LLaMA2训练任务并行优化
 
 [Colossal-AI](https://github.com/hpcaitech/ColossalAI) 框架中包含了一系列训练时的并行优化策略，其中包括了张量并行，模型并行、数据并行和Zero等优化策略。在本个实例中，我们将演示如何便捷地使用我们Colossal-AI云平台框架使用这些并行策略训练LLaMA2 7B模型。
 
@@ -110,7 +110,10 @@ RedPajama-Data-1T 包含七个数据片段：
 
 如果您选择了Hybrid Parallel，您可以更改python训练脚本中第181行到第190行的HybridParallelPlugin配置代码，更改tp_size和pp_size以更改张量并行和管道并行的大小。HybridParallelPlugin是通过shardformer实现张量并行，在该插件中，可设置tp_size确定张量并行组的大小，此外，还有多个参数可设置张量并行时的优化特性：
 
-enable_all_optimization（布尔类型，可选项）：是否启用Shardformer支持的所有优化方法，目前所有优化方法包括融合归一化、flash attention和JIT。默认为False。 enable_fused_normalization（布尔类型，可选项）：是否在Shardformer中启用融合归一化。默认为False。 enable_flash_attention（布尔类型，可选项）：是否在Shardformer中启用flash attention。默认为False。 enable_jit_fused（布尔类型，可选项）：是否在Shardformer中启用JIT。默认为False。 enable_sequence_parallelism（布尔类型）：是否在Shardformer中启用序列并行性。默认为False。 enable_sequence_overlap（布尔类型）：是否在Shardformer中启用序列重叠性。默认为False。
+- enable_all_optimization（布尔类型，可选项）：是否启用Shardformer支持的所有优化方法，目前所有优化方法包括融合归一化、flash attention和JIT。默认为False。 
+- enable_fused_normalization（布尔类型，可选项）：是否在Shardformer中启用融合归一化。默认为False。 enable_flash_attention（布尔类型，可选项）：是否在Shardformer中启用flash attention。默认为False。 
+- enable_jit_fused（布尔类型，可选项）：是否在Shardformer中启用JIT。默认为False。 enable_sequence_parallelism（布尔类型）：是否在Shardformer中启用序列并行性。默认为False。 
+- enable_sequence_overlap（布尔类型）：是否在Shardformer中启用序列重叠性。默认为False。
 
 HybridParallelPlugin通过设置pp_size确定流水线并行组的大小，num_microbatches设置流水线并行时将整个batch划分为小batch的数量，microbatch_size可设置小batch的大小，插件会优先使用num_microbatches来确定micro batch的配置。 HybridParallelPlugin的设置示例如下：
 
@@ -135,6 +138,7 @@ DATASET_DIR="/mnt/dataset"
 OUTPUT_DIR="/output"
 
 TRAINING_DATASET_DIR=${DATASET_DIR}/RedPajama-Data-1T-Sample
+COLOSSALAI_PROJECT_DIR=${SCRIPT_DIR}/ColossalAI
 TENSORBOARD_OUTPUT_DIR=${OUTPUT_DIR}/tensorboard
 CHECKPOINT_SAVE_DIR=${OUTPUT_DIR}/checkpoint
 SAVE_MODEL_PATH=${CHECKPOINT_SAVE_DIR}
@@ -142,19 +146,20 @@ SAVE_MODEL_PATH=${CHECKPOINT_SAVE_DIR}
 mkdir -p ${TENSORBOARD_OUTPUT_DIR}
 mkdir -p ${SAVE_MODEL_PATH}
 
-cd ColossalAI
-cd ColossalAI/examples/language/llama2/
+cd ${COLOSSALAI_PROJECT_DIR}
+pip install ./
+cd examples/language/llama2/
 
-colossalai run --nproc_per_node ${NPROC_PER_NODE} ${SCRIPT_DIR}/pretrain.py \
+colossalai run --nproc_per_node ${NPROC_PER_NODE} pretrain.py \
     --plugin ${strategy} \
     --dataset ${TRAINING_DATASET_DIR} \
     --save_dir ${SAVE_MODEL_PATH} \
     --num_epochs ${num_epochs} \
     --batch_size ${batch_size} \
     --max_length ${max_len} \
-    save_interval ${save_interval}\
+    --save_interval ${save_interval}\
     --lr ${lr} \
-    --log_dir ${TENSORBOARD_OUTPUT_DIR} \
+    --tensorboard_dir ${TENSORBOARD_OUTPUT_DIR} \
 ```
 
 LLaMA2 将会就此开始训练，你同时也可以在项目页面查看输出和结果。
