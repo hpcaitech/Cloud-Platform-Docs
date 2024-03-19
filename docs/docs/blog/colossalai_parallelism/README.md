@@ -6,7 +6,7 @@ Tags:  Colossal-AI，训练并行， LLaMA2
 
 ## 运行环境要求
 
-镜像：推荐使用官方镜像 notebook-colossalai-torch210-cu118
+镜像：推荐使用官方镜像 colossalai 0.3.4
 
 GPU规格：推荐使用H800 （4块及以上）
 
