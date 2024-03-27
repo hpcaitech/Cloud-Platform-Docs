@@ -1,8 +1,8 @@
 # 并行优化策略: 利用Colossal-AI Dreambooth进行Stable-Diffuison训练
 
-[Colossal-AI Dreambooth](https://github.com/hpcaitech/ColossalAI/tree/main/examples/images/dreambooth) 。在本个实例中，我们将演示如何便捷地使用我们Colossal-AI云平台框架使用这些并行策略训练Stable Diffusion模型。
+[Colossal-AI Dreambooth](https://github.com/hpcaitech/ColossalAI/tree/main/examples/images/dreambooth) 。在本个实例中，我们将演示如何便捷地使用我们Colossal-AI云平台框架使用这些并行策略训练Stable Diffusion v1.4 模型。
 
-Tags:  Colossal-AI， Dreambooth训练， Stable Diffsuon
+Tags:  Colossal-AI， Dreambooth，训练， Stable Diffsuon
 
 ## 运行环境要求
 
@@ -16,17 +16,17 @@ GPU规格：推荐使用H800 （2块及以上）
 
 ## 2. 准备数据库
 
-我们使用[Teyvat](https://www.together.xyz/blog/redpajama)数据集，此数据集已经预置于我们云平台，稍后我们会将此数据集挂载在我们的任务上。
+我们使用[Teyvat](https://huggingface.co/datasets/Fazzie/Teyvat)数据集，此数据集已经预置于我们云平台，稍后我们会将此数据集挂载在我们的任务上。
 
-BLIP 从 [genshin-impact fandom wiki](https://genshin-impact.fandom.com/wiki/Character#Playable_Characters) 和 [biligame wiki for genshin impact](https://wiki.biligame.com/ys/%E8%A7%92%E8%89%B2) 生成了角色图像的标题。
+这个数据集是什么？
 
-对于每一行，数据集包含 `image` 和 `text` 键。`image` 是一个大小不等的 PIL png 图像，而 `text` 是相应的文本标题。只提供了一个训练集。
-
-`text` 包括标签 `Teyvat`、`Name`、`Element`、`Weapon`、`Region`、`Model type` 和 `Description`，`Description` 使用 [预训练的 BLIP 模型](https://github.com/salesforce/BLIP) 进行标题标注。
+> BLIP 从 [genshin-impact fandom wiki](https://genshin-impact.fandom.com/wiki/Character#Playable_Characters) 和 [biligame wiki for genshin impact](https://wiki.biligame.com/ys/%E8%A7%92%E8%89%B2) 生成了角色图像的标题。
+> 对于每一行，数据集包含 `image` 和 `text` 键。`image` 是一个大小不等的 PIL png 图像，而 `text` 是相应的文本标题。只提供了一个训练集。
+> `text` 包括标签 `Teyvat`、`Name`、`Element`、`Weapon`、`Region`、`Model type` 和 `Description`，`Description` 使用 [预训练的 BLIP 模型](https://github.com/salesforce/BLIP) 进行标题标注。
 
 ## 3. 准备模型
 
-我们需要准备预训练好的[CompVis/stable-diffusion-v1-4](https://huggingface.co/CompVis/stable-diffusion-v1-4)代码仓库。在此样例中，此数据集已经预置于我们云平台，稍后我们会将此模型挂载在我们的任务上。
+我们需要准备预训练好的[CompVis/stable-diffusion-v1-4](https://huggingface.co/CompVis/stable-diffusion-v1-4)模型。在此样例中，此模型已经预置于我们云平台，稍后我们会将此模型挂载在我们的任务上。
 
 
 ## 3. 启动任务
