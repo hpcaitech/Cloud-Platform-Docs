@@ -92,4 +92,4 @@ torchrun --nproc_per_node ${NPROC_PER_NODE}  train_dreambooth_colossalai.py \
   --max_train_steps=${num_train_step}
 ```
 
-LLaMA2 将会就此开始训练，你同时也可以在项目页面查看输出和结果。
+Stable Diffusion 将会就此开始训练，你同时也可以在项目页面查看输出和结果。
