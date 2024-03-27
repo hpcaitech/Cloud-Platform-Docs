@@ -35,7 +35,7 @@ GPU规格：推荐使用H800 （2块及以上）
 
 2. 填写对应的任务名称和描述；
 
-2. 挂载预训练模型：将之前准备好预训练模型的 `stable-diffusion-v1-4` 数据集挂载到 Container 中，在这个例子里，模型被挂载到了 `/mnt/model`；
+3. 挂载预训练模型：将之前准备好预训练模型的 `stable-diffusion-v1-4` 数据集挂载到 Container 中，在这个例子里，模型被挂载到了 `/mnt/model`；
 
 4. 挂载数据集：将之前准备好的 `Teyvat` 数据集挂载到 Container 中，在这个例子里，模型被挂载到了 `/mnt/dataset`；
 
