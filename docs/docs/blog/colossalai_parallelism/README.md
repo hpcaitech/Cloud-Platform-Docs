@@ -75,7 +75,7 @@ RedPajama-Data-1T 包含七个数据片段：
 
 8. 最后点击 `创建`，启动任务；
 
-![infernce_api_create](./images/task_create.jpg)
+![task_create](./images/task_create.jpg)
 
 
 ## 3. 启动命令

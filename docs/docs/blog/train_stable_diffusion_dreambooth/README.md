@@ -1,4 +1,4 @@
-# 并行优化策略: 利用Colossal-AI Dreambooth进行Stable-Diffuison训练
+# 利用Colossal-AI Dreambooth进行Stable-Diffuison训练
 
 [Colossal-AI Dreambooth](https://github.com/hpcaitech/ColossalAI/tree/main/examples/images/dreambooth) 。在本个实例中，我们将演示如何便捷地使用我们Colossal-AI云平台框架使用这些并行策略训练Stable Diffusion v1.4 模型。
 
@@ -49,7 +49,7 @@ GPU规格：推荐使用H800 （2块及以上）
 
 9. 最后点击 `创建`，启动任务；
 
-![infernce_api_create](./images/task_create.jpg)
+![task_create](./images/task_create.jpg)
 
 
 ## 3. 启动命令

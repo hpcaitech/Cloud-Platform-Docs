@@ -43,6 +43,6 @@ GPU规格：推荐使用H800 （1块及以上）
 
 一个示例的text2img结果如下, 其prompt为 "a photo of an astronaut riding a horse on mars":
 
-![infernce_api_create](./images/text2img_example.png)
+![task_create](./images/text2img_example.png)
 
 开始使用此notebook体验您的stable diffsuion推理吧！
